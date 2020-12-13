@@ -45,11 +45,11 @@
                         Inicio
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link class="text-white" href="" >
+                    <x-jet-nav-link class="text-white" href="/periods" >
                         Periodos
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link class="text-white" href="{{route('createMatter')}}" >
+                    <x-jet-nav-link class="text-white" href="/matters/create" >
                         Agregar materia
                     </x-jet-nav-link>
 
