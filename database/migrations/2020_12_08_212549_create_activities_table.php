@@ -15,6 +15,12 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('matter_id');
+            $table->unsignedBigInteger('period_id');
+            $table->unsignedInteger('unit');
+            $table->string('name', 120);
+            $table->date('date_created');
+            $table->unsignedInteger('points');
             $table->timestamps();
         });
     }
