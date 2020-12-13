@@ -16,25 +16,35 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function (){
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
-    Route::get('/matters', 'App\Http\Controllers\MatterController@index')->name('matters');
-    Route::get('/matters/{id}', 'App\Http\Controllers\MatterController@show')->name('showMatter');
+    Route::group(['prefix' => '/matters'], function () {
+        Route::get('/', 'App\Http\Controllers\MatterController@index')->name('matters');
+        Route::get('/{id}', 'App\Http\Controllers\MatterController@show')->name('showMatter');
 
-    Route::get('/matters/create', 'App\Http\Controllers\MatterController@create')->name('createMatter');
+        Route::get('/create', 'App\Http\Controllers\MatterController@create')->name('createMatter');
+    });
+
+    Route::group(['prefix' => '/groups'], function () {
+        Route::get('/', 'App\Http\Controllers\GroupController@index')->name('groups');
+        Route::get('/show/{id}', 'App\Http\Controllers\GroupController@show')->name('showGroup');
+        Route::get('/create', 'App\Http\Controllers\GroupController@create')->name('createGroup');
+        Route::post('/save', 'App\Http\Controllers\GroupController@save')->name('saveGroup');
+        Route::post('/update', 'App\Http\Controllers\GroupController@update')->name('updateGroup');
+
+    });
 
 
-
-
-    Route::get('/periods', 'App\Http\Controllers\PeriodController@index')->name('periods');
-        Route::get('/periods/show/{id}', 'App\Http\Controllers\PeriodController@show')->name('showPeriod');
-        Route::get('/periods/create', 'App\Http\Controllers\PeriodController@create')->name('createPeriod');
-        Route::post('/periods/save', 'App\Http\Controllers\PeriodController@save')->name('savePeriod');
-        Route::post('/periods/update', 'App\Http\Controllers\PeriodController@update')->name('updatePeriod');
-        Route::get('/periods/delete/{id}', 'App\Http\Controllers\PeriodController@delete')->name('deletePeriod');
-
+    Route::group(['prefix' => '/periods'], function () {
+        Route::get('/', 'App\Http\Controllers\PeriodController@index')->name('periods');
+        Route::get('/show/{id}', 'App\Http\Controllers\PeriodController@show')->name('showPeriod');
+        Route::get('/create', 'App\Http\Controllers\PeriodController@create')->name('createPeriod');
+        Route::post('/save', 'App\Http\Controllers\PeriodController@save')->name('savePeriod');
+        Route::post('/update', 'App\Http\Controllers\PeriodController@update')->name('updatePeriod');
+        Route::get('/delete/{id}', 'App\Http\Controllers\PeriodController@delete')->name('deletePeriod');
+    });
 
 
 });

@@ -8,7 +8,7 @@
             <div class="max-w-4xl mx-auto sm:px-4 lg:px-6">
                 <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
                     <div class="flex justify-between ">
-                        <a role="button" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2  border rounded-full" href="/periods/create">
+                        <a role="button" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2  border rounded-full" href="{{route('createPeriod')}}">
                             Agregar periodo
                         </a>
                     </div>
@@ -35,11 +35,11 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                            <div class="text-sm leading-5 text-blue-900">{{$period->start_date}}</div>
+                                            <div class="text-sm leading-5 text-blue-900">{{\Illuminate\Support\Str::upper(Carbon\Carbon::parse($period->start_date)->isoFormat(' D MMM'))}}</div>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                            <div class="text-sm leading-5 text-blue-900">{{$period->end_date}}</div>
+                                            <div class="text-sm leading-5 text-blue-900">{{\Illuminate\Support\Str::upper(Carbon\Carbon::parse($period->end_date)->isoFormat(' D MMM'))}}</div>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">

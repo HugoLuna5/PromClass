@@ -14,6 +14,13 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
+        'period_id',
         'name',
     ];
+
+    public function students(){
+        return $this->hasMany('App\Models\Student','group_id','id');
+    }
+
+
 }
