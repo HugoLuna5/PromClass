@@ -22,9 +22,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::group(['prefix' => '/matters'], function () {
         Route::get('/', 'App\Http\Controllers\MatterController@index')->name('matters');
-        Route::get('/{id}', 'App\Http\Controllers\MatterController@show')->name('showMatter');
+        Route::get('/show/{id}', 'App\Http\Controllers\MatterController@show')->name('showMatter');
 
         Route::get('/create', 'App\Http\Controllers\MatterController@create')->name('createMatter');
+        Route::post('/save', 'App\Http\Controllers\MatterController@save')->name('saveMatter');
     });
 
     Route::group(['prefix' => '/groups'], function () {

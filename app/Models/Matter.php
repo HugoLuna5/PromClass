@@ -25,4 +25,8 @@ class Matter extends Model
         return $this->hasOne('App\Models\Period', 'id', 'period_id');
     }
 
+    public function students(){
+        return $this->hasMany('App\Models\Student','group_id','id');
+    }
+
 }

@@ -22,5 +22,9 @@ class Group extends Model
         return $this->hasMany('App\Models\Student','group_id','id');
     }
 
+    public function period(){
+        return $this->hasOne('App\Models\Period','id', 'period_id');
+    }
+
 
 }
