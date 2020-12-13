@@ -16,7 +16,7 @@ class MatterController extends Controller
     }
 
     public function create(){
-
+        return view('home.create');
     }
 
 }

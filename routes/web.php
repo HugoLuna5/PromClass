@@ -20,17 +20,15 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function (){
 
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
-    Route::prefix('/matters', function (){
+    Route::get('/matters', 'App\Http\Controllers\MatterController@index')->name('matters');
+    Route::get('/matters/{id}', 'App\Http\Controllers\MatterController@show')->name('showMatter');
 
-        Route::get('', 'App\Http\Controllers\MatterController@index')->name('matters');
-        Route::get('/{id}', 'App\Http\Controllers\MatterController@show')->name('showMatter');
-
-        Route::get('/create', 'App\Http\Controllers\MatterController@create')->name('createMatter');
+    Route::get('/matters/create', 'App\Http\Controllers\MatterController@create')->name('createMatter');
 
 
-    });
 
-        Route::get('/periods', 'App\Http\Controllers\PeriodController@index')->name('periods');
+
+    Route::get('/periods', 'App\Http\Controllers\PeriodController@index')->name('periods');
         Route::get('/periods/show/{id}', 'App\Http\Controllers\PeriodController@show')->name('showPeriod');
         Route::get('/periods/create', 'App\Http\Controllers\PeriodController@create')->name('createPeriod');
         Route::post('/periods/save', 'App\Http\Controllers\PeriodController@save')->name('savePeriod');
