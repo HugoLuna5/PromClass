@@ -38,6 +38,7 @@ class GroupController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required'],
             'period_id' => ['required'],
+            'file' => ['required'],
         ]);
 
         if ($validator->fails()) {

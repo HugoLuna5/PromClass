@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4b86912-9036-4cf0-bc71-22c395041638" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/home/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/activity/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/activity/filter.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MatterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MatterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/StudentsImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/StudentsImport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Matter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Matter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_08_212549_create_activities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_08_212549_create_activities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,10 +171,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\PromClass\resources\lang" />
+      <recent name="D:\laragon\www\PromClass\resources\views\profile" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -194,7 +201,8 @@
       <workItem from="1607741693536" duration="2076000" />
       <workItem from="1607807237007" duration="44000" />
       <workItem from="1607819204709" duration="6935000" />
-      <workItem from="1607835482881" duration="9117000" />
+      <workItem from="1607835482881" duration="9402000" />
+      <workItem from="1607867865908" duration="7504000" />
     </task>
     <servers />
   </component>

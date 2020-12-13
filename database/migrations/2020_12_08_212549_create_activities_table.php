@@ -17,9 +17,9 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('matter_id');
             $table->unsignedBigInteger('period_id');
-            $table->unsignedInteger('unit');
-            $table->string('name', 120);
-            $table->date('date_created');
+            $table->unsignedInteger('unit')->nullable();
+            $table->text('name');
+            $table->string('date_created');
             $table->unsignedInteger('points');
             $table->timestamps();
         });

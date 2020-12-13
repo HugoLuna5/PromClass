@@ -29,4 +29,8 @@ class Matter extends Model
         return $this->hasMany('App\Models\Student','group_id','id');
     }
 
+    public function activities(){
+        return $this->hasMany('App\Models\Activity','matter_id','id');
+    }
+
 }

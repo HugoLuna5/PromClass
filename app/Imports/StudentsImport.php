@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Student;
+use App\Models\Student;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
@@ -28,7 +28,7 @@ class StudentsImport implements ToCollection
         foreach ($rows as $row)
         {
             if ($i >= 3){
-                \App\Models\Student::create([
+                Student::create([
                     'group_id' => $this->group_id,
                     'names' => $row[1],
                     'last_names' => $row[0],

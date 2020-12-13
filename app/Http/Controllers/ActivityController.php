@@ -2,44 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ActivityImport;
+use App\Imports\StudentsImport;
 use App\Models\Group;
 use App\Models\Matter;
 use App\Models\Period;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Excel;
 
-class MatterController extends Controller
+class ActivityController extends Controller
 {
-
-    public function index(){
-
-    }
-
-    public function show($id){
-
+    //
+    public function add($id){
         $matter  = Matter::find($id);
         if ($matter != null){
-            $periods = Period::all();
-            $groups = Group::all();
-            return view('home.show', compact('periods', 'groups', 'matter'));
+
+            return view('activity.create', compact( 'matter'));
         }
 
         return abort(404);
+
     }
 
-    public function create(){
-        $periods = Period::all();
-        $groups = Group::all();
-        return view('home.create', compact('periods', 'groups'));
-    }
-
-    public function save(Request $request){
+    public function load(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => ['required'],
-            'max_units' => ['required'],
-            'period_id' => ['required'],
-            'group_id' => ['required'],
+            'matter_id' => ['required'],
+            'file' => ['required'],
         ]);
 
         if ($validator->fails()) {
@@ -50,18 +40,20 @@ class MatterController extends Controller
             return back()->with($notification);
         }
 
-        $matter = Matter::create($request->all());
-
+        $matter  = Matter::find($request->id);
         if ($matter != null){
+            $res = Excel::import(new ActivityImport($matter->id,$matter->period_id), $request->file);
             $notification = array(
-                'message' => 'Materia agregada exitosamente!',
+                'message' => 'Actividades agregadas exitosamente!',
                 'alert-type' => 'success'
             );
 
-            return Redirect::to('/home')->with($notification);
+            return Redirect::to('/matters/show/'.$matter->id)->with($notification);
         }
+
+
         $notification = array(
-            'message' => 'Error al agregar la materia',
+            'message' => 'Error al agregar las actividades',
             'alert-type' => 'error'
         );
 
