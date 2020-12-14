@@ -18,6 +18,6 @@ class ActivitiesStudent extends Model
         'matter_id',
         'student_id',
         'points',
-        'unit'
+        'unit_id'
     ];
 }

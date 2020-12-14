@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\Student;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
 class StudentsImport implements ToCollection
@@ -30,8 +31,8 @@ class StudentsImport implements ToCollection
             if ($i >= 3){
                 Student::create([
                     'group_id' => $this->group_id,
-                    'names' => $row[1],
-                    'last_names' => $row[0],
+                    'names' => Str::upper($row[1]),
+                    'last_names' => Str::upper($row[0]),
                     'email' => $row[2]
 
                 ]);

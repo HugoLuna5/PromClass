@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Group;
 use App\Models\Matter;
 use App\Models\Period;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -53,6 +54,14 @@ class MatterController extends Controller
         $matter = Matter::create($request->all());
 
         if ($matter != null){
+
+            for ($i=0; $i < $request->max_units; $i++){
+                Unit::create([
+                   'name' => ($i+1),
+                   'matter_id' => $matter->id
+                ]);
+            }
+
             $notification = array(
                 'message' => 'Materia agregada exitosamente!',
                 'alert-type' => 'success'

@@ -2,15 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4b86912-9036-4cf0-bc71-22c395041638" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/activity/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/activity/filter.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/feather/feather.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/feather/fonts/Feather.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/feather/fonts/Feather.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/feather/fonts/Feather.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/xeditable/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/xeditable/css/edit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/xeditable/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MatterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MatterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Imports/StudentsImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/StudentsImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ActivitiesStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ActivitiesStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Matter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Matter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_08_212549_create_activities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_08_212549_create_activities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_13_005048_create_activities_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_005048_create_activities_students_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/group/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/group/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/period/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/period/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,13 +185,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\PromClass\public" />
       <recent name="D:\laragon\www\PromClass\resources\lang" />
       <recent name="D:\laragon\www\PromClass\resources\views\profile" />
     </key>
@@ -202,7 +217,8 @@
       <workItem from="1607807237007" duration="44000" />
       <workItem from="1607819204709" duration="6935000" />
       <workItem from="1607835482881" duration="9402000" />
-      <workItem from="1607867865908" duration="7504000" />
+      <workItem from="1607867865908" duration="11027000" />
+      <workItem from="1607904330264" duration="6408000" />
     </task>
     <servers />
   </component>

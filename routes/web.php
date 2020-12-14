@@ -29,6 +29,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
             Route::get('', 'App\Http\Controllers\MatterController@show')->name('showMatter');
             Route::get('/activity/create', 'App\Http\Controllers\ActivityController@add')->name('addActivity');
             Route::post('/activity/load', 'App\Http\Controllers\ActivityController@load')->name('loadActivities');
+            Route::put('/units/show/{unit_id}', 'App\Http\Controllers\UnitController@show')->name('showUnit');
+
+        });
+        Route::group(['prefix' => '/units'], function () {
+            Route::put('/update', 'App\Http\Controllers\UnitController@update')->name('updateUnit');
+
 
         });
 

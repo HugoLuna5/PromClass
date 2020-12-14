@@ -33,4 +33,8 @@ class Matter extends Model
         return $this->hasMany('App\Models\Activity','matter_id','id');
     }
 
+    public function units(){
+        return $this->hasMany('App\Models\Unit', 'matter_id','id');
+    }
+
 }

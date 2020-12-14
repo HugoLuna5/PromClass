@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class Unit extends Model
 {
     use HasFactory;
 
@@ -15,15 +15,8 @@ class Activity extends Model
      * @var array
      */
     protected $fillable = [
-        'matter_id',
-        'period_id',
-        'unit_id',
         'name',
-        'date_created',
-        'points'
+        'matter_id',
+        'max_points'
     ];
-
-    public function unit(){
-        return $this->hasOne('App\Models\Unit', 'id','unit_id');
-    }
 }

@@ -7,7 +7,7 @@
             @extends('layouts.alerts')
             <div class="max-w-4xl mx-auto sm:px-4 lg:px-6">
                 <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
-                    <div class="flex justify-between ">
+                    <div class="flex justify-end ">
                         <a role="button" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2  border rounded-full" href="{{route('createPeriod')}}">
                             Agregar periodo
                         </a>
