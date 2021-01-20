@@ -7,6 +7,7 @@ use App\Models\Matter;
 use App\Models\Period;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -51,13 +52,16 @@ class MatterController extends Controller
             return back()->with($notification);
         }
 
+        $user_id = Auth::user()->id;
+        $request['user_id'] = $user_id;
         $matter = Matter::create($request->all());
 
         if ($matter != null){
 
             for ($i=0; $i < $request->max_units; $i++){
                 Unit::create([
-                   'name' => ($i+1),
+                    'user_id' => $user_id,
+                   'name' => 'Unidad '.($i+1),
                    'matter_id' => $matter->id
                 ]);
             }
@@ -75,6 +79,51 @@ class MatterController extends Controller
         );
 
         return Redirect::to('/home')->with($notification);
+
+    }
+
+    public function update(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => ['required'],
+            'period_id' => ['required'],
+            'group_id' => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            $notification = array(
+                'message' => 'Todos los campos son requeridos: ' . $validator->errors(),
+                'alert-type' => 'error'
+            );
+            return back()->with($notification);
+        }
+
+        $matter = Matter::find($request->matter_id);
+
+
+        if ($matter != null){
+
+            $matter->name = $request->name;
+            $matter->period_id = $request->period_id;
+            $matter->group_id = $request->group_id;
+
+            if ($matter->update()){
+                $notification = array(
+                    'message' => 'Materia actualizada exitosamente!',
+                    'alert-type' => 'success'
+                );
+
+                return Redirect::to('/matters/show/'.$matter->id)->with($notification);
+            }
+
+        }
+
+        $notification = array(
+            'message' => 'Error al actualizar la materia',
+            'alert-type' => 'error'
+        );
+
+        return Redirect::to('/matters/show/'.$matter->id)->with($notification);
+
 
     }
 

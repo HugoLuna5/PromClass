@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\ActivityImport;
 use App\Imports\StudentsImport;
+use App\Models\Activity;
 use App\Models\Group;
 use App\Models\Matter;
 use App\Models\Period;
@@ -26,6 +27,13 @@ class ActivityController extends Controller
 
     }
 
+    public function updateUnit(Request $request){
+        $activity = Activity::find($request->pk);
+        $activity->unit_id = $request->value;
+        $activity->update();
+        return response()->json(['status' => 'success', 'message' => 'Valor actualizado correctamente'], 200);
+    }
+
     public function load(Request $request){
         $validator = Validator::make($request->all(), [
             'matter_id' => ['required'],
@@ -41,8 +49,9 @@ class ActivityController extends Controller
         }
 
         $matter  = Matter::find($request->id);
+        $students = $matter->students;
         if ($matter != null){
-            $res = Excel::import(new ActivityImport($matter->id,$matter->period_id), $request->file);
+            $res = Excel::import(new ActivityImport($matter->id,$matter->period_id, $students), $request->file);
             $notification = array(
                 'message' => 'Actividades agregadas exitosamente!',
                 'alert-type' => 'success'
@@ -60,5 +69,20 @@ class ActivityController extends Controller
         return Redirect::to('/home')->with($notification);
 
     }
+
+    public function show($id, $activity){
+        $matter  = Matter::find($id);
+        $activity = Activity::find($activity);
+        if ($matter != null && $activity != null){
+            return view('activity.show', compact( 'matter', 'activity'));
+        }
+
+        return abort(404);
+    }
+
+    public function showActivity($matter_id, $activity_id){
+
+    }
+
 
 }

@@ -15,6 +15,7 @@ class CreateUnitsTable extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->unsignedBigInteger('matter_id');
             $table->unsignedInteger('max_points')->nullable();

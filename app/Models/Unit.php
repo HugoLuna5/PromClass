@@ -15,6 +15,7 @@ class Unit extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'name',
         'matter_id',
         'max_points'

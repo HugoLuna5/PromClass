@@ -24,19 +24,28 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/', 'App\Http\Controllers\MatterController@index')->name('matters');
         Route::get('/create', 'App\Http\Controllers\MatterController@create')->name('createMatter');
         Route::post('/save', 'App\Http\Controllers\MatterController@save')->name('saveMatter');
+        Route::post('/update', 'App\Http\Controllers\MatterController@update')->name('updateMatter');
 
         Route::group(['prefix' => '/show/{id}'], function () {
             Route::get('', 'App\Http\Controllers\MatterController@show')->name('showMatter');
             Route::get('/activity/create', 'App\Http\Controllers\ActivityController@add')->name('addActivity');
             Route::post('/activity/load', 'App\Http\Controllers\ActivityController@load')->name('loadActivities');
-            Route::put('/units/show/{unit_id}', 'App\Http\Controllers\UnitController@show')->name('showUnit');
+            Route::put('/activity/update/unit', 'App\Http\Controllers\ActivityController@updateUnit')->name('updateActivityUnit');
+            Route::get('/activity/show/{activity}', 'App\Http\Controllers\ActivityController@showActivity')->name('showActivity');
+
+            Route::prefix('/units')->group(function (){
+                Route::get('/create', 'App\Http\Controllers\UnitController@create')->name('createUnit');
+                Route::post('/save', 'App\Http\Controllers\UnitController@save')->name('saveUnit');
+                Route::post('/update', 'App\Http\Controllers\UnitController@updateUnitCompleted')->name('updateUnitCompleted');
+                Route::post('/delete', 'App\Http\Controllers\UnitController@delete')->name('deleteUnit');
+                Route::get('/show/{unit_id}', 'App\Http\Controllers\UnitController@show')->name('showUnit');
+            });
+
+
 
         });
-        Route::group(['prefix' => '/units'], function () {
-            Route::put('/update', 'App\Http\Controllers\UnitController@update')->name('updateUnit');
 
-
-        });
+        Route::put('/units/update', 'App\Http\Controllers\UnitController@update')->name('updateUnit');
 
     });
 

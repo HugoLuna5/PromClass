@@ -7,6 +7,7 @@ use App\Models\Group;
 use App\Models\Period;
 use Illuminate\Http\Request;
 use Excel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -48,7 +49,7 @@ class GroupController extends Controller
             );
             return back()->with($notification);
         }
-
+        $request['user_id'] = Auth::user()->id;
         $group = Group::create($request->all());
 
         if ($group != null){

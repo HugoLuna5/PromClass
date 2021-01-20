@@ -15,6 +15,7 @@ class CreateMattersTable extends Migration
     {
         Schema::create('matters', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name', 60);
             $table->unsignedBigInteger('period_id');
             $table->unsignedBigInteger('group_id');

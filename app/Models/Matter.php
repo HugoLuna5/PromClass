@@ -15,6 +15,7 @@ class Matter extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'name',
         'period_id',
         'group_id',

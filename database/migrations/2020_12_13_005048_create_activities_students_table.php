@@ -18,7 +18,7 @@ class CreateActivitiesStudentsTable extends Migration
             $table->unsignedBigInteger('matter_id');
             $table->unsignedBigInteger('student_id');
             $table->unsignedInteger('points');
-            $table->unsignedBigInteger('unit_id');
+            $table->unsignedBigInteger('activity_id');
             $table->timestamps();
         });
     }
