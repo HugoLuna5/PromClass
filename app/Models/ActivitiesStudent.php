@@ -20,4 +20,14 @@ class ActivitiesStudent extends Model
         'points',
         'activity_id'
     ];
+
+
+    public function activity(){
+        return $this->hasOne('App\Models\Activity','id', 'activity_id');
+    }
+
+    public function student(){
+        return $this->hasOne('App\Models\Student', 'id', 'student_id')->orderBy('last_names', 'asc');;
+    }
+
 }

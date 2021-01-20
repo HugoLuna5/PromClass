@@ -20,4 +20,10 @@ class Unit extends Model
         'matter_id',
         'max_points'
     ];
+
+
+    public function activities(){
+        return $this->hasMany('App\Models\Activity', 'unit_id', 'id');
+    }
+
 }

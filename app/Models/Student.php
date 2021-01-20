@@ -20,4 +20,9 @@ class Student extends Model
         'group_id',
         'email'
     ];
+
+    public function group(){
+        return $this->hasOne('App\Models\Group', 'id', 'group_id');
+    }
+
 }

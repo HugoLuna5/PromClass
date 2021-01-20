@@ -32,6 +32,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
             Route::post('/activity/load', 'App\Http\Controllers\ActivityController@load')->name('loadActivities');
             Route::put('/activity/update/unit', 'App\Http\Controllers\ActivityController@updateUnit')->name('updateActivityUnit');
             Route::get('/activity/show/{activity}', 'App\Http\Controllers\ActivityController@showActivity')->name('showActivity');
+            Route::put('/activity/show/{activity}/update', 'App\Http\Controllers\ActivityController@updateCalActivity')->name('updateCalActivity');
+
+
+            Route::prefix('students')->group(function (){
+                Route::get('/show/{studen_id}', 'App\Http\Controllers\HomeController@showStudent')->name('showStudent');
+
+            });
 
             Route::prefix('/units')->group(function (){
                 Route::get('/create', 'App\Http\Controllers\UnitController@create')->name('createUnit');

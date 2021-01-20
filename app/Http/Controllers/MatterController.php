@@ -31,8 +31,9 @@ class MatterController extends Controller
     }
 
     public function create(){
-        $periods = Period::all();
-        $groups = Group::all();
+        $user_id = Auth::user()->id;
+        $periods = Period::where('user_id', $user_id)->get();
+        $groups = Group::where('user_id', $user_id)->get();
         return view('home.create', compact('periods', 'groups'));
     }
 

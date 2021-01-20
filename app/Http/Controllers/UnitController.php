@@ -139,6 +139,9 @@ class UnitController extends Controller
             DB::table('activities')->where('unit_id',  $unit->id)
                 ->update(['unit_id' => null]);
 
+            $matter = Matter::find($unit->matter_id);
+            $matter->max_units = $matter->max_units -1;
+
             if ($unit->delete()){
                 return response()->json(['status' => 'success', 'message' => 'Unidad eliminado correctamente'], 200);
 

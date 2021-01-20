@@ -43,12 +43,17 @@ class ActivityImport implements ToCollection
                 'points' => $points[$i]
             ]);
 
-            for($j=3; $j <sizeof($this->students); $j++){
+            for($j=0; $j <sizeof($this->students); $j++){
                 //ActivityStudent
+
+                if ($rows[($j+3)][$i] == ''){
+                    $rows[($j+3)][$i] = 0;
+                }
+
                 ActivitiesStudent::create([
                     'matter_id' => $this->matter_id,
                     'student_id' => $this->students[$j]->id,
-                    'points' => $rows[$j][$i],
+                    'points' => $rows[($j+3)][$i],
                     'activity_id' => $act->id
                 ]);
             }

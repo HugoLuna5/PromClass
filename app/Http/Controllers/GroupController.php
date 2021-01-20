@@ -15,7 +15,8 @@ class GroupController extends Controller
 {
     //
     public function index(){
-        $groups = Group::paginate(50)->setPageName('groups');
+        $user_id = Auth::user()->id;
+        $groups = Group::where('user_id', $user_id)->paginate(50)->setPageName('groups');
         return view('group.index', compact('groups'));
     }
 
@@ -31,7 +32,8 @@ class GroupController extends Controller
     }
 
     public function create(){
-        $periods = Period::all();
+        $user_id = Auth::user()->id;
+        $periods = Period::where('user_id', $user_id)->get();
         return view('group.create', compact('periods'));
     }
 

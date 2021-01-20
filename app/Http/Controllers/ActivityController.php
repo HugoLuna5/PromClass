@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Imports\ActivityImport;
 use App\Imports\StudentsImport;
+use App\Models\ActivitiesStudent;
 use App\Models\Activity;
 use App\Models\Group;
 use App\Models\Matter;
 use App\Models\Period;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -81,8 +83,21 @@ class ActivityController extends Controller
     }
 
     public function showActivity($matter_id, $activity_id){
+        $matter  = Matter::find($matter_id);
+        $activity = Activity::find($activity_id);
 
+        if ($matter != null && $activity != null)
+            return view('activity.student', compact('activity', 'matter'));
+
+        abort(404);
     }
 
+
+    public function updateCalActivity(Request $request){
+        $unit = ActivitiesStudent::find($request->pk);
+        $unit->points = $request->value;
+        $unit->update();
+        return response()->json(['status' => 'success', 'message' => 'Valor actualizado correctamente'], 200);
+    }
 
 }

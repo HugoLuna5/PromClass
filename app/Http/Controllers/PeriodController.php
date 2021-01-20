@@ -12,7 +12,8 @@ class PeriodController extends Controller
 {
 
     public function index(){
-        $periods = Period::paginate(50)->setPageName('periods');
+        $user_id = Auth::user()->id;
+        $periods = Period::where('user_id', $user_id)->paginate(50)->setPageName('periods');
         return view('period.index', compact('periods'));
     }
 

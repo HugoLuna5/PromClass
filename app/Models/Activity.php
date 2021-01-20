@@ -26,4 +26,11 @@ class Activity extends Model
     public function unit(){
         return $this->hasOne('App\Models\Unit', 'id','unit_id');
     }
+
+    public function activities(){
+        return $this->hasMany('App\Models\ActivitiesStudent', 'activity_id', 'id');
+    }
+
+
+
 }
