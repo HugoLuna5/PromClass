@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4b86912-9036-4cf0-bc71-22c395041638" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/activity/student.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home/student.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/export/prom.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MatterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MatterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PeriodController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeriodController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UnitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UnitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/ActivityImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ActivityImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ActivitiesStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ActivitiesStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Unit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Unit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/activity/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/activity/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -180,6 +169,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/home" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -219,7 +209,7 @@
       <workItem from="1607904330264" duration="7003000" />
       <workItem from="1607961563629" duration="3930000" />
       <workItem from="1608061619708" duration="600000" />
-      <workItem from="1611113130939" duration="14948000" />
+      <workItem from="1611113130939" duration="17685000" />
     </task>
     <servers />
   </component>

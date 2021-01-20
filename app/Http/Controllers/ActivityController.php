@@ -11,6 +11,7 @@ use App\Models\Matter;
 use App\Models\Period;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Excel;
@@ -93,8 +94,32 @@ class ActivityController extends Controller
     }
 
 
+    public function delete(Request $request){
+        $activity = Activity::find($request->activity_id);
+
+        if ($activity != null){
+            DB::table('activities_students')->where('activity_id',  $activity->id)
+                ->delete();
+
+            if ($activity->delete()){
+                return response()->json(['status' => 'success', 'message' => 'Actividad eliminada correctamente'], 200);
+
+            }
+
+        }
+        return response()->json(['status' => 'error', 'message' => 'Ocurrio un error al eliminar la actividad'], 200);
+
+    }
+
     public function updateCalActivity(Request $request){
         $unit = ActivitiesStudent::find($request->pk);
+        $unit->points = $request->value;
+        $unit->update();
+        return response()->json(['status' => 'success', 'message' => 'Valor actualizado correctamente'], 200);
+    }
+
+    public function updatePoints(Request $request){
+        $unit = Activity::find($request->pk);
         $unit->points = $request->value;
         $unit->update();
         return response()->json(['status' => 'success', 'message' => 'Valor actualizado correctamente'], 200);

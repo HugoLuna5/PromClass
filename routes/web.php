@@ -27,8 +27,11 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/update', 'App\Http\Controllers\MatterController@update')->name('updateMatter');
 
         Route::group(['prefix' => '/show/{id}'], function () {
+            Route::get('/export', 'App\Http\Controllers\MatterController@export')->name('exportMatter');
             Route::get('', 'App\Http\Controllers\MatterController@show')->name('showMatter');
             Route::get('/activity/create', 'App\Http\Controllers\ActivityController@add')->name('addActivity');
+            Route::post('/activity/delete', 'App\Http\Controllers\ActivityController@delete')->name('deleteActivity');
+            Route::put('/activity/update/points', 'App\Http\Controllers\ActivityController@updatePoints')->name('updatePoints');
             Route::post('/activity/load', 'App\Http\Controllers\ActivityController@load')->name('loadActivities');
             Route::put('/activity/update/unit', 'App\Http\Controllers\ActivityController@updateUnit')->name('updateActivityUnit');
             Route::get('/activity/show/{activity}', 'App\Http\Controllers\ActivityController@showActivity')->name('showActivity');

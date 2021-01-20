@@ -98,6 +98,7 @@
                                         type="submit">
                                         Actualizar
                                     </button>
+
                                 </div>
                             </form>
 
@@ -135,7 +136,7 @@
                                                     <div class="text-sm leading-5 text-gray-800">
                                                         <a href="{{route('showUnit', ['id' => $matter->id,'unit_id' => $unit->id])}}">
 
-                                                        {{$unit->name}}
+                                                            {{$unit->name}}
                                                         </a></div>
                                                 </div>
                                             </div>
@@ -214,14 +215,27 @@
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm leading-5 text-gray-800">
-                                                    <p data-title='{{$activity->name}}' data-placement="top">{{ \Illuminate\Support\Str::limit($activity->name, 25, $end='...') }}</p>
+                                                    <p data-title='{{$activity->name}}'
+                                                       data-placement="top">{{ \Illuminate\Support\Str::limit($activity->name, 25, $end='...') }}</p>
 
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                        <div class="text-sm leading-5 text-blue-900">{{$activity->points}}</div>
+                                        <div class="text-sm leading-5 text-blue-900">
+
+                                                <a href="#"
+                                                   data-type="text"
+                                                   data-pk="{{$activity->id}}"
+                                                   data-url="{{route('updatePoints', ['id' => $matter->id])}}"
+                                                   data-title="Points"
+                                                   data-value="{{$activity->points}}"
+                                                   class="set-points text-gray-900 whitespace-no-wrap"
+                                                   data-name="points"></a>
+
+
+                                            </div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -243,7 +257,8 @@
 
                                     <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                         <a class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
-                                           href="{{route('showActivity', ['id' => $matter->id,'activity' => $activity->id])}}">Ver detalles</a>
+                                           href="{{route('showActivity', ['id' => $matter->id,'activity' => $activity->id])}}">Ver</a>
+                                        <button onclick="deleteActivity('{{$activity->id}}')" class="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Eliminar</button>
                                     </td>
                                 </tr>
 
@@ -281,7 +296,7 @@
                             <div class="flex justify-end ">
                                 <a role="button"
                                    class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2  border rounded-full"
-                                   href="">
+                                   href="{{route('exportMatter', [$matter->id])}}">
                                     Exportar datos
                                 </a>
                             </div>
@@ -310,7 +325,7 @@
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm leading-5 text-gray-800">
-                                                    <p >{{$student->names.' '.$student->last_names}}</p>
+                                                    <p>{{$student->names.' '.$student->last_names}}</p>
 
                                                 </div>
                                             </div>
@@ -357,6 +372,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="{{asset('/xeditable/js/app.js')}}"></script>
     <script>
+        const tokenWb = $('meta[name="csrf-token"]').attr('content');//token de seguridad
         $.fn.editable.defaults.mode = 'inline';
         $.fn.editable.defaults.ajaxOptions = {type: 'PUT'};
         $(document).ready(function () {
@@ -403,5 +419,33 @@
             });
 
         });
+
+        function deleteActivity(activity_id){
+            const options = {
+                method: 'POST',
+                body: JSON.stringify({
+                    'activity_id': activity_id,
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': tokenWb
+                }
+            };
+
+
+            fetch('{{route('deleteActivity', [$matter->id])}}', options)
+                .then((res) => res.json())
+                .then((res) => {
+
+                    if (res.status === 'success'){
+                        location.href = '/matters/show/{{$matter->id}}'
+                    }else{
+                        alert(res.message)
+                    }
+                });
+
+        }
+
     </script>
 @endsection

@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PromExport;
 use App\Models\Group;
 use App\Models\Matter;
 use App\Models\Period;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Excel;
+use Illuminate\Support\Str;
+
 
 class MatterController extends Controller
 {
@@ -126,6 +131,14 @@ class MatterController extends Controller
         return Redirect::to('/matters/show/'.$matter->id)->with($notification);
 
 
+    }
+
+
+    public function export($matter_id){
+        $matter = Matter::find($matter_id);
+
+        $prom = Str::upper(Carbon::parse($matter->period->start_date)->isoFormat(' D MMM')).' - '.Str::upper(Carbon::parse($matter->period->end_date)->isoFormat(' D MMM'));
+        return Excel::download(new PromExport($matter_id), $matter->name.' - Promedios - '.$prom.'.xlsx');
     }
 
 }
